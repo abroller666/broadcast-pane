@@ -1,7 +1,8 @@
 # broadcast-pane
 
-[![license MIT](https://img.shields.io/badge/license-MIT-3a78b5)](LICENSE)
-[![herdr plugin](https://img.shields.io/badge/herdr-plugin-8fb37d)](https://herdr.dev/plugins/)
+[![release](https://img.shields.io/github/v/release/abroller666/broadcast-pane)](https://github.com/abroller666/broadcast-pane/releases)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![herdr plugin](https://img.shields.io/badge/herdr-plugin-8ec07c)](https://herdr.dev/plugins/)
 
 [日本語](README.ja.md)
 
