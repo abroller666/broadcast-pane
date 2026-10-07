@@ -1,0 +1,35 @@
+id = "abroller666.broadcast-pane"
+name = "Broadcast Pane"
+version = "0.1.0"
+min_herdr_version = "0.9.2"
+description = "tmux synchronize-panes for Herdr: type in a small popup and your keystrokes go to all (or chosen) panes in the tab"
+platforms = ["linux", "macos"]
+
+# Needs cargo. `herdr plugin link` skips this; run scripts/build.sh yourself.
+[[build]]
+command = ["sh", "scripts/build.sh"]
+
+[[actions]]
+id = "open"
+title = "Broadcast to all panes"
+# `open` starts a fresh console (forgetting the last selection); if it fails,
+# open the console directly.
+command = ["sh", "-c", "./bin/broadcast-pane open || exec \"${HERDR_BIN_PATH:-herdr}\" plugin pane open --plugin abroller666.broadcast-pane --entrypoint console"]
+
+[[panes]]
+id = "console"
+title = "Broadcast"
+placement = "popup"
+width = "60%"
+height = 5
+command = ["./bin/broadcast-pane"]
+
+# The target picker (Ctrl+] in the console). The console opens it with a
+# height fitting the tab's panes; the size here is only a fallback.
+[[panes]]
+id = "picker"
+title = "Broadcast targets"
+placement = "popup"
+width = "60%"
+height = 12
+command = ["./bin/broadcast-pane", "picker"]
