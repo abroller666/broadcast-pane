@@ -1,5 +1,8 @@
 # broadcast-pane
 
+[![license MIT](https://img.shields.io/badge/license-MIT-3a78b5)](LICENSE)
+[![herdr plugin](https://img.shields.io/badge/herdr-plugin-8fb37d)](https://herdr.dev/plugins/)
+
 [English](README.md)
 
 [Herdr](https://herdr.dev) で、打ったキーをタブ内の全ペイン（または選んだペイン）へ同時に送るプラグインです。

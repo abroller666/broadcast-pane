@@ -1,5 +1,8 @@
 # broadcast-pane
 
+[![license MIT](https://img.shields.io/badge/license-MIT-3a78b5)](LICENSE)
+[![herdr plugin](https://img.shields.io/badge/herdr-plugin-8fb37d)](https://herdr.dev/plugins/)
+
 [日本語](README.ja.md)
 
 A [Herdr](https://herdr.dev) plugin that sends what you type to every pane of
