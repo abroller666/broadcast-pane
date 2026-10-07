@@ -9,8 +9,7 @@ the tab (or the panes you choose). In use, it works much like tmux's
 ![broadcast-pane demo](assets/demo.gif)
 
 Press one key to open a small popup in the middle of the screen. What you type
-there goes to every pane of the current tab (or the panes you choose). The
-layout does not change, and the target panes stay visible around the popup.
+there goes to every pane of the current tab (or the panes you choose).
 
 ```
 ┌─ pane 1 ──────────┬─ pane 2 ──────────┐
