@@ -1,5 +1,5 @@
 //! Herdr plugin popup that broadcasts every keystroke typed into it to the
-//! panes of the current tab (tmux `synchronize-panes` for Herdr).
+//! panes of the current tab, much like tmux `synchronize-panes`.
 //!
 //! - `broadcast-pane open` (the plugin action) opens the console popup.
 //! - `broadcast-pane` is the console: type here to broadcast.

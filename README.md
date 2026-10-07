@@ -2,7 +2,9 @@
 
 [日本語](README.ja.md)
 
-tmux's `synchronize-panes` for [Herdr](https://herdr.dev).
+A [Herdr](https://herdr.dev) plugin that sends what you type to every pane of
+the tab (or the panes you choose). In use, it works much like tmux's
+`synchronize-panes`.
 
 ![broadcast-pane demo](assets/demo.gif)
 

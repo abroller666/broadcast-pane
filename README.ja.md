@@ -2,7 +2,8 @@
 
 [English](README.md)
 
-[Herdr](https://herdr.dev) で tmux の `synchronize-panes` を使えるようにするプラグインです。
+[Herdr](https://herdr.dev) で、打ったキーをタブ内の全ペイン（または選んだペイン）へ同時に送るプラグインです。
+使い勝手は tmux の `synchronize-panes` に近いものです。
 
 ![broadcast-pane のデモ](assets/demo.gif)
 

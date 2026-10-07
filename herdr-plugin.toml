@@ -2,7 +2,7 @@ id = "abroller666.broadcast-pane"
 name = "Broadcast Pane"
 version = "0.1.0"
 min_herdr_version = "0.9.2"
-description = "tmux synchronize-panes for Herdr: type in a small popup and your keystrokes go to all (or chosen) panes in the tab"
+description = "Type in a small popup and your keystrokes go to all (or chosen) panes of the tab, much like tmux's synchronize-panes"
 platforms = ["linux", "macos"]
 
 # Needs cargo. `herdr plugin link` skips this; run scripts/build.sh yourself.
