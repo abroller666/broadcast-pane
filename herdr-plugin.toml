@@ -1,6 +1,6 @@
 id = "abroller666.broadcast-pane"
 name = "Broadcast Pane"
-version = "0.1.0"
+version = "0.1.1"
 min_herdr_version = "0.9.2"
 description = "Type in a small popup and your keystrokes go to all (or chosen) panes of the tab, much like tmux's synchronize-panes"
 platforms = ["linux", "macos"]
