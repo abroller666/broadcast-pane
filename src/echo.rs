@@ -2,8 +2,9 @@
 //!
 //! Only typing keys are broadcast: text, Enter, Backspace, Tab, Ctrl+C,
 //! Alt+Enter, and Emacs-style line editing (Ctrl+A/E/B/F/K/U/W, ← → Home End
-//! Del, and Ctrl+P/N ↑ ↓ between rows of a multi-line input). Other shortcuts
-//! (Esc, Ctrl+D, Ctrl+L, Ctrl+R, Alt+key, ...) are dropped, and so are the
+//! Del, and Ctrl+P/N ↑ ↓ between rows of a multi-line input). A lone Esc
+//! closes the console. Other shortcuts (Ctrl+D, Ctrl+L, Ctrl+R, Alt+key, ...)
+//! are dropped, and so are the
 //! up / down keys when there is no row to move to, so they never recall
 //! history in the targets.
 //!
@@ -126,10 +127,11 @@ impl Echo {
         !self.pending.is_empty()
     }
 
-    /// Gives up on a held escape sequence when the rest has not come: it was
-    /// a lone Esc (or junk), which is not broadcast either way.
-    pub fn expire(&mut self) {
-        self.pending.clear();
+    /// Gives up on a held escape sequence when the rest has not come, and
+    /// returns whether it was a lone Esc (rather than junk). Neither is
+    /// broadcast.
+    pub fn expire(&mut self) -> bool {
+        std::mem::take(&mut self.pending) == "\x1b"
     }
 
     fn insert(&mut self, token: Token) {
@@ -527,9 +529,17 @@ mod tests {
         let mut e = Echo::default();
         assert_eq!(e.feed("a\x1b"), "a");
         assert!(e.has_pending());
-        e.expire();
+        assert!(e.expire());
         assert_eq!(e.feed("b"), "b"); // not taken as Alt+b
         assert_eq!(line(&e), "ab");
+    }
+
+    #[test]
+    fn expire_of_a_cut_off_sequence_is_not_a_lone_esc() {
+        let mut e = Echo::default();
+        assert_eq!(e.feed("\x1b["), "");
+        assert!(!e.expire());
+        assert!(!e.has_pending());
     }
 
     #[test]

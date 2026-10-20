@@ -119,7 +119,7 @@ fn console_header(targets: &[Target]) -> String {
     } else {
         format!("{}/{} ({})", chosen.len(), targets.len(), chosen.join(", "))
     };
-    format!("\x1b[1;33mbroadcast\x1b[0m → {to}  \x1b[2mC-]: select  C-g: quit\x1b[0m")
+    format!("\x1b[1;33mbroadcast\x1b[0m → {to}  \x1b[2mC-]: select  Esc: quit\x1b[0m")
 }
 
 /// Header, the previous line (dim), and the row of the input holding the cursor.
@@ -346,7 +346,11 @@ fn run_console() -> Result<(), String> {
     let mut stdin = std::io::stdin().lock();
     loop {
         if echo.has_pending() && !readable_within(ESCAPE_TIMEOUT_MS) {
-            echo.expire();
+            // A lone Esc closes the console.
+            if echo.expire() {
+                state::clear();
+                return Ok(());
+            }
             continue;
         }
         let n = stdin.read(&mut buf).map_err(|e| format!("read: {e}"))?;

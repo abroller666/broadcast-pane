@@ -57,7 +57,7 @@ there goes to every pane of the current tab (or the panes you choose).
   history), so this is a record of the keys you sent.
 - **No history recall**: `Ctrl+p`/`Ctrl+n` and `↑` `↓` are not sent when
   there is no row to move to.
-- **Quit with `Ctrl+g` or `Ctrl+q`**.
+- **Quit with `Esc`, `Ctrl+g`, or `Ctrl+q`**.
 
 ## Limitations
 
